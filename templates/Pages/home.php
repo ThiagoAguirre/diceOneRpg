@@ -31,7 +31,7 @@ $checkConnection = function (string $name) {
         $connected = true;
     } catch (Exception $connectionError) {
         $error = $connectionError->getMessage();
-        if (method_exists($connectionError, 'getAttributes')) {
+        if ($connectionError instanceof \Cake\Database\Exception\MissingConnectionException) {
             $attributes = $connectionError->getAttributes();
             if (isset($attributes['message'])) {
                 $error .= '<br />' . $attributes['message'];

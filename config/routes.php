@@ -63,6 +63,17 @@ return function (RouteBuilder $routes): void {
         $builder->connect('/pages/*', 'Pages::display');
 
         /*
+         * Connect a route for the Users controller login action.
+         */
+        $builder->connect('/users/login', ['controller' => 'Users', 'action' => 'login']);
+
+        /*
+         * Connect a route for the Users controller logout action.
+        */
+        $builder->connect('/users/logout', ['controller' => 'Users', 'action' => 'logout']);
+        $builder->connect('/users/register', ['controller' => 'Users', 'action' => 'register']);
+
+        /*
          * Connect catchall routes for all controllers.
          *
          * The `fallbacks` method is a shortcut for

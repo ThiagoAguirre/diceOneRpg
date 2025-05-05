@@ -44,6 +44,7 @@ use Cake\Mailer\Mailer;
 use Cake\Mailer\TransportFactory;
 use Cake\Routing\Router;
 use Cake\Utility\Security;
+use Cake\Core\Plugin;
 
 /*
  * Load global functions for collections, translations, debugging etc.
@@ -231,3 +232,8 @@ ServerRequest::addDetector('tablet', function ($request) {
 // and https://unicode-org.github.io/icu/userguide/format_parse/datetime/#datetime-format-syntax
 // \Cake\I18n\Date::setToStringFormat('dd.MM.yyyy');
 // \Cake\I18n\Time::setToStringFormat('dd.MM.yyyy HH:mm');
+
+use Cake\Http\BaseApplication;
+
+// Add this line in your Application class (src/Application.php) instead of bootstrap.php
+// $this->addPlugin('Authentication');
