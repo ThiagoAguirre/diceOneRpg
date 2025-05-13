@@ -1,3 +1,4 @@
+/* Updated CSS for the login page */
 .login-container {
     display: flex;
     height: 100vh;
@@ -12,31 +13,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: burlywood;
+    background-color: #f4f4f4;
 }
 
 .login-image .logo {
-    width: 600px;
-    border-radius: 15%;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10%;
 }
 
 .login-form {
-    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    width: 50%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    right: 0;
-    background: white;
-    width: 50%;
-    height: 100%;
+    background-color: #fff;
     padding: 20px;
-    justify-content: center;
 }
 
 .users.form {
     width: 100%;
     max-width: 400px;
+    text-align: center;
 }
 
 fieldset {
@@ -46,16 +47,18 @@ fieldset {
 }
 
 legend {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1em;
 }
 
 button {
@@ -65,9 +68,24 @@ button {
     color: #fff;
     border: none;
     border-radius: 5px;
+    font-size: 1em;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #900;
+}
+
+.additional-links {
+    margin-top: 15px;
+}
+
+.additional-links a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.additional-links a:hover {
+    text-decoration: underline;
 }
