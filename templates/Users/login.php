@@ -17,7 +17,7 @@
                 <?= $this->Form->control('password', ['required' => true, 'label' => __('Password')]) ?>
                 <?= $this->Form->control('remember_me', ['type' => 'checkbox', 'label' => __('Remember me (7 days)')]) ?>
             </fieldset>
-            <?= $this->Form->submit(__('Login'), ['class' => 'btn btn-primary']); ?>
+            <?= $this->Form->submit(__('Login'), ['class' => 'button']); ?>
             <?= $this->Form->end() ?>
 
             <div class="additional-links">

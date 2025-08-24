@@ -1,91 +1,235 @@
-/* Updated CSS for the login page */
-.login-container {
-    display: flex;
-    height: 100vh;
+/* ====== RPG Login Theme (drop-in) ====== */
+
+/* Fonts (Google) – títulos com "Cinzel", textos com "IM Fell English" */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English:ital@0;1&display=swap');
+
+:root{
+  --paper:#f3e6cf;
+  --paper-ink:#3b2b16;
+  --gold:#c9a44a;
+  --gold-dark:#9a7b2f;
+  --wood:#7a3e20;
+  --wood-dark:#5a2e18;
+  --accent:#a23d2b;   /* opcional p/ links */
+  --input-bg:#f8f1dc;
 }
 
-.login-image {
-    position: fixed;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #6b3f16d9;
+/* layout base */
+.login-container{
+  display:flex;
+  height:100vh;
 }
 
-.login-image .logo {
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 10%;
+/* LADO ESQUERDO (imagem) – mantém como está, só um degradê para “fundir” */
+.login-image{
+  position:fixed; left:0; width:50%; height:100%;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  background:
+    radial-gradient(1200px 1200px at 70% 50%, rgba(107,63,22,.25), rgba(107,63,22,.85)),
+    #6b3f16;
+}
+.login-image .logo{ max-width:80%; max-height:80%; border-radius:24px; }
+
+/* LADO DIREITO (formulário) – pergaminho + moldura */
+.login-form{
+  position:fixed; right:0; width:50%; height:100%;
+  display:flex; justify-content:center; align-items:center;
+  padding:32px;
+  background:
+    /* textura de pergaminho com sobreposições */
+    radial-gradient(1200px 800px at 110% -10%, rgba(122,62,32,.25) 0%, transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(122,62,32,.18) 0%, transparent 60%),
+    repeating-linear-gradient(0deg, rgba(0,0,0,.03) 0 2px, rgba(0,0,0,0) 2px 4px),
+    var(--paper);
+  color:var(--paper-ink);
 }
 
-.login-form {
-    position: fixed;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    padding: 20px;
+/* “tábua” central do formulário */
+.users.form{
+  width:100%; max-width:440px; text-align:left;
+  position:relative;
+  padding:28px 28px 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,.25), rgba(255,255,255,.05)),
+              var(--paper);
+  border:2px solid var(--gold);
+  border-radius:18px;
+  box-shadow:
+    0 0 0 6px rgba(201,164,74,.15) inset,             /* filete dourado interno */
+    0 20px 40px rgba(0,0,0,.20);                      /* profundidade */
 }
 
-.users.form {
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+/* cantos ornamentados */
+.users.form::before,
+.users.form::after{
+  content:""; position:absolute; inset:-10px; pointer-events:none;
+  border-radius:22px;
+  background:
+    radial-gradient(14px 14px at 18px 18px, var(--gold) 0 7px, transparent 8px),
+    radial-gradient(14px 14px at calc(100% - 18px) 18px, var(--gold) 0 7px, transparent 8px),
+    radial-gradient(14px 14px at 18px calc(100% - 18px), var(--gold) 0 7px, transparent 8px),
+    radial-gradient(14px 14px at calc(100% - 18px) calc(100% - 18px), var(--gold) 0 7px, transparent 8px);
+  opacity:.35;
 }
 
-fieldset {
-    border: none;
-    padding: 0;
-    margin: 0 0 20px;
+/* Título e legendas */
+legend, .users.form legend{
+  font-family:"Cinzel", serif;
+  font-weight:700;
+  font-size:28px;
+  letter-spacing:.5px;
+  margin:0 0 16px;
+  color:var(--paper-ink);
+}
+fieldset{ border:none; padding:0; margin:0 0 20px; }
+
+.users.form p, .users.form label, .additional-links{
+  font-family:"IM Fell English", serif;
+  font-size:16px;
 }
 
-legend {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    color: #333;
+/* Inputs */
+input{
+  width:100%;
+  padding:12px 14px;
+  margin-bottom:14px;
+  background:var(--input-bg);
+  border:2px solid var(--gold);
+  border-radius:10px;
+  color:var(--paper-ink);
+  font-size:16px;
+  outline:none;
+  transition:border-color .2s, box-shadow .2s, transform .05s;
+  box-shadow:0 2px 0 var(--gold-dark) inset;
+}
+input:focus{
+  border-color:#e0c66a;
+  box-shadow:0 0 0 3px rgba(233,204,121,.35);
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
+/* Botão – madeira */
+/* Botão padrão agora é o estilo Rubi (RPG) */
+button, .button {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 16px;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #fff;
+  border-radius: 12px;
+  border: 2px solid #701f1f;
+  cursor: pointer;
+  background: linear-gradient(180deg, #b83e3a, #7a1e1e);
+  background-image:
+    linear-gradient(180deg, #b4322e, #781d1d),
+    linear-gradient(180deg, #b4322e, #781d1d);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 6px 0 #4d1414,
+    0 12px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.05s ease, box-shadow 0.1s ease, filter 0.2s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #a00;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+button::before, .button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  pointer-events: none;
 }
 
-button:hover {
-    background-color: #900;
+button:hover, .button:hover {
+  filter: saturate(1.1) brightness(1.05);
 }
 
-.additional-links {
-    margin-top: 15px;
+button:active, .button:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 4px 0 #4d1414,
+    0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.additional-links a {
-    color: #007bff;
-    text-decoration: none;
+/* Links auxiliares */
+.additional-links{ margin-top:14px; text-align:center; }
+.additional-links a{
+  color:var(--accent);
+  text-decoration:none;
+  border-bottom:1px dashed rgba(162,61,43,.5);
+}
+.additional-links a:hover{ border-bottom-color:rgba(162,61,43,.9); }
+
+/* Checkbox/“remember me” (se existir) */
+input[type="checkbox"]{
+  width:auto; margin-right:8px; accent-color:var(--gold);
 }
 
-.additional-links a:hover {
-    text-decoration: underline;
+/* Responsivo */
+@media (max-width: 980px){
+  .login-image{ display:none; }
+  .login-form{ left:0; width:100%; }
+}
+
+
+
+
+
+/* ==== Botão estilo Rubi (RPG) ==== */
+.button {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 16px;
+  font-family: "Cinzel", serif; /* Pode trocar pela fonte do seu tema */
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #fff;
+  border-radius: 12px;
+  border: 2px solid #701f1f;
+  cursor: pointer;
+  background: linear-gradient(180deg, #b83e3a, #7a1e1e);
+  background-image:
+    linear-gradient(180deg, #b4322e, #781d1d),
+    linear-gradient(180deg, #b4322e, #781d1d);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 6px 0 #4d1414,
+    0 12px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.05s ease, box-shadow 0.1s ease, filter 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brilho superior */
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  pointer-events: none;
+}
+
+/* Hover - mais saturado */
+.button:hover {
+  filter: saturate(1.1) brightness(1.05);
+}
+
+/* Pressionado */
+.button:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 4px 0 #4d1414,
+    0 8px 16px rgba(0, 0, 0, 0.2);
 }
