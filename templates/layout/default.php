@@ -34,14 +34,21 @@ $cakeDescription = 'OneDiceRPG';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <?php if ($this->request->getParam('controller') !== 'Users' || $this->request->getParam('action') !== 'login'): ?>
+    <?php if ($this->request->getParam('controller') !== 'Users' || $this->request->getParam('action') !== 'login' || $this->request->getParam('action') !== 'register' ): ?>
         <nav class="top-nav">
-            <div class="top-nav-title">
-                <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
+            <div class="nav-left">
+                <img src="/img/cake-logo.png" alt="Logo" class="nav-logo" style="width:40px; height:40px; vertical-align:middle;">
+                <span class="nav-title" style="font-size:1.7em; color:#e15b5b; margin-left:10px; vertical-align:middle;">RPG Quest</span>
             </div>
-            <div class="top-nav-links">
-                <a target="_blank" rel="noopener" href="https://book.cakephp.org/5/">Documentation</a>
-                <a target="_blank" rel="noopener" href="https://api.cakephp.org/">API</a>
+            <div class="nav-center">
+                <a href="/" class="nav-link active">Início</a>
+                <a href="/campanhas" class="nav-link">Campanhas</a>
+                <a href="/comunidade" class="nav-link">Comunidade</a>
+                <a href="/blog" class="nav-link">Blog</a>
+            </div>
+            <div class="nav-right">
+                <a href="/login" class="nav-btn">Entrar</a>
+                <a href="/register" class="nav-btn nav-btn-primary">Registrar</a>
             </div>
         </nav>
     <?php endif; ?>

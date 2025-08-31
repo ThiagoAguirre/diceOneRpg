@@ -1,190 +1,175 @@
+<a href="<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'login']); ?>">Login</a>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RPG Quest</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #0d0f2b;
-      color: #fff;
-    }
-    header {
-      background: #0a0c23;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      color: #f5b200;
-    }
-    header nav a {
-      margin: 0 1rem;
-      color: #ccc;
-      text-decoration: none;
-    }
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4rem 2rem;
-      background: linear-gradient(to right, #0d0f2b 60%, #5e4d21);
-    }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      color: #f5b200;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: #b0c4de;
-    }
-    .buttons {
-      margin-top: 2rem;
-    }
-    .buttons a {
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      margin-right: 1rem;
-    }
-    .start-btn {
-      background: #f5b200;
-      color: #000;
-    }
-    .explore-btn {
-      background: #7a3ff2;
-      color: #fff;
-    }
-    .stats, .features, .campaigns, .blog, footer {
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .stats div, .features .item, .campaigns .card, .blog .card {
-      display: inline-block;
-      margin: 1rem;
-      padding: 1rem;
-      background: #14162f;
-      border-radius: 12px;
-      max-width: 250px;
-    }
-    .features .item h3 {
-      color: #f5b200;
-    }
-    .campaigns .card h4, .blog .card h4 {
-      color: #f5b200;
-    }
-    .campaigns .card button {
-      margin-top: 1rem;
-      background: #f5b200;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-    footer {
-      background: #0a0c23;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      color: #8899a8;
-    }
-    footer div {
-      margin: 1rem;
-    }
-    footer h4 {
-      color: #f5b200;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div><strong>RPG Quest</strong></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <span>🗡️ RPG Quest</span>
+    </div>
     <nav>
-      <a href="#inicio">Início</a>
-      <a href="#campanhas">Campanhas</a>
-      <a href="#dashboard">Dashboard</a>
-      <a href="#blog">Blog</a>
-      <a href="#login">Login</a>
-      <a href="#registrar" style="background: #f5b200; padding: 0.5rem 1rem; border-radius: 8px; color: black;">Registrar</a>
+      <a href="#" class="active">Início</a>
+      <a href="#">Campanhas</a>
+      <a href="#">Comunidade</a>
+      <a href="#">Blog</a>
     </nav>
+    <div class="actions">
+      <button class="btn-login">Entrar</button>
+      <button class="btn-register">Registrar</button>
+    </div>
   </header>
+
+  <!-- Hero -->
   <section class="hero">
-    <div>
-      <h1>Crie, Explore<br>Viva aventuras <br>Épicas de RPG</h1>
-      <p>Embarque em jornadas, desvende mistérios e encontre histórias épicas para participar. A maior plataforma de RPG online do Brasil.</p>
-      <div class="buttons">
-        <a href="#" class="start-btn">Começar Aventura</a>
-        <a href="#" class="explore-btn">Explorar Campanhas</a>
+    <div class="hero-content animate-fade">
+      <h1>RPG Quest</h1>
+      <p>Sua jornada épica começa aqui. Conecte-se com aventureiros, crie campanhas lendárias e explore mundos fantásticos.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary">🗡️ Começar Aventura</button>
+        <button class="btn-secondary">👑 Explorar Campanhas</button>
       </div>
     </div>
   </section>
-  <section class="stats">
-    <div><strong>2.5K+</strong><br>Jogadores Ativos</div>
-    <div><strong>450+</strong><br>Campanhas Ativas</div>
-    <div><strong>89%</strong><br>Satisfação</div>
-    <div><strong>24/7</strong><br>Suporte Online</div>
-  </section>
+
+  <!-- Por que RPG Quest -->
   <section class="features">
-    <h2>Por que escolher o RPG Quest?</h2>
-    <div class="item">
-      <h3>Comunidade Ativa</h3>
-      <p>Conecte-se com milhares de jogadores apaixonados por RPG. Encontre seu grupo ideal.</p>
-    </div>
-    <div class="item">
-      <h3>Ferramentas Avançadas</h3>
-      <p>Mapas interativos, fichas digitais e muito mais para suas sessões.</p>
-    </div>
-    <div class="item">
-      <h3>Acessível em Qualquer Lugar</h3>
-      <p>Funciona em PC, tablet e celular, a qualquer hora.</p>
+    <h2>Por Que RPG Quest?</h2>
+    <p>A plataforma mais completa para suas aventuras de RPG online</p>
+    <div class="cards">
+      <div class="card animate-up">
+        <span>👥</span>
+        <h3>Comunidade Ativa</h3>
+        <p>Conecte-se com milhares de jogadores apaixonados por RPG ao redor do mundo.</p>
+      </div>
+      <div class="card animate-up">
+        <span>⚡</span>
+        <h3>Ferramentas Avançadas</h3>
+        <p>Sistema completo de fichas, mapas interativos e dados virtuais.</p>
+      </div>
+      <div class="card animate-up">
+        <span>🌍</span>
+        <h3>Acessível em Qualquer Lugar</h3>
+        <p>Jogue de qualquer dispositivo, a qualquer hora, em qualquer lugar.</p>
+      </div>
     </div>
   </section>
+
+  <!-- Campanhas -->
   <section class="campaigns">
     <h2>Campanhas em Destaque</h2>
-    <div class="card">
-      <h4>A Lenda do Dragão Adormecido</h4>
-      <p>Aventura épica em busca de um tesouro perdido. <br> D&D 5e</p>
-      <button>Participar da Aventura</button>
-    </div>
-    <div class="card">
-      <h4>Mistérios de Shadowhaven</h4>
-      <p>Investigação sobrenatural numa cidade assombrada. <br> Call of Cthulhu</p>
-      <button>Participar da Aventura</button>
+    <p>Aventuras épicas esperando por heróis corajosos</p>
+    <div class="campaign-list">
+      <div class="campaign animate-scale">
+        <h3>A Coroa Perdida <span class="tag">D&D 5e</span></h3>
+        <p>Uma aventura épica em busca da coroa ancestral do reino perdido.</p>
+        <p><b>Mestre:</b> Mestre Aldric</p>
+        <p><b>Jogadores:</b> 4/6</p>
+        <p><b>Nível:</b> 1-5</p>
+        <button class="btn-primary">Participar</button>
+      </div>
+      <div class="campaign animate-scale">
+        <h3>Sombras de Barovia <span class="tag">D&D 5e</span></h3>
+        <p>Horror gótico nas terras sombrias de Ravenloft.</p>
+        <p><b>Mestre:</b> Mestra Raven</p>
+        <p><b>Jogadores:</b> 5/6</p>
+        <p><b>Nível:</b> 3-10</p>
+        <button class="btn-primary">Participar</button>
+      </div>
+      <div class="campaign animate-scale">
+        <h3>Piratas dos Mares do Sul <span class="tag">Pathfinder</span></h3>
+        <p>Aventuras marítimas em busca de tesouros lendários.</p>
+        <p><b>Mestre:</b> Capitão Drake</p>
+        <p><b>Jogadores:</b> 3/5</p>
+        <p><b>Nível:</b> 5-12</p>
+        <button class="btn-primary">Participar</button>
+      </div>
     </div>
   </section>
+
+  <!-- Blog -->
   <section class="blog">
     <h2>Últimas do Blog</h2>
-    <div class="card">
-      <h4>10 Dicas para Mestres Iniciantes</h4>
-      <p>Dicas essenciais para criar sessões memoráveis.</p>
-    </div>
-    <div class="card">
-      <h4>Como Criar Personagens Memoráveis</h4>
-      <p>Técnicas para dar vida a NPCs inesquecíveis.</p>
-    </div>
-    <div class="card">
-      <h4>O Futuro dos RPGs Online</h4>
-      <p>Tendências e tecnologia no RPG digital.</p>
+    <p>Dicas, guias e novidades do mundo RPG</p>
+    <div class="blog-list">
+      <div class="blog-post animate-up">
+        <h3>Como Criar Sua Primeira Campanha</h3>
+        <p>Dicas essenciais para mestres iniciantes começarem suas aventuras...</p>
+        <span>Por Mestre Gandalf • 2 dias atrás</span>
+      </div>
+      <div class="blog-post animate-up">
+        <h3>Guia de Classes para Iniciantes</h3>
+        <p>Descubra qual classe combina melhor com seu estilo de jogo...</p>
+        <span>Por Aventureira Luna • 1 semana atrás</span>
+      </div>
+      <div class="blog-post animate-up">
+        <h3>RPG Online vs Presencial</h3>
+        <p>Explorando as vantagens e desafios de cada modalidade...</p>
+        <span>Por Veterano Thorin • 2 semanas atrás</span>
+      </div>
     </div>
   </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <h2>Pronto Para Sua Próxima Aventura?</h2>
+    <p>Junte-se a milhares de aventureiros e comece sua jornada épica hoje mesmo!</p>
+    <button class="btn-secondary">⚔️ Criar Conta Grátis</button>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <div>
-      <h4>RPG Quest</h4>
-      <p>A plataforma definitiva para campanhas online de RPG. Conecte-se, crie e viva histórias épicas.</p>
+    <div class="footer-content">
+      <div class="footer-logo">
+        🗡️ RPG Quest
+        <p>A plataforma definitiva para aventuras de RPG online.</p>
+      </div>
+      <div>
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li>Campanhas</li>
+          <li>Comunidade</li>
+          <li>Blog</li>
+          <li>Ajuda</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Recursos</h4>
+        <ul>
+          <li>Sistema de Níveis</li>
+          <li>Wiki Colaborativa</li>
+          <li>Ferramentas Avançadas</li>
+          <li>Matchmaking</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Suporte</h4>
+        <ul>
+          <li>Contato</li>
+          <li>FAQ</li>
+          <li>Privacidade</li>
+          <li>Termos de Uso</li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h4>Links Rápidos</h4>
-      <p>Campanhas<br>Dashboard<br>Blog<br>Suporte</p>
-    </div>
-    <div>
-      <h4>Recursos</h4>
-      <p>Como Jogar<br>Regras<br>Comunidade<br>FAQ</p>
-    </div>
+    <p class="footer-copy">© 2024 RPG Quest. Que sua jornada seja épica!</p>
   </footer>
+
 </body>
 </html>
+
+<?php 
+  echo $this->Html->css('home.css');
+  echo $this->Html->script('home.js');
+?>
