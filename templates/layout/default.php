@@ -27,7 +27,8 @@ $cakeDescription = 'OneDiceRPG';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
+    <?= $this->Html->css(['cake']) ?>
+    <?= $this->Html->script(['main.js']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -35,7 +36,7 @@ $cakeDescription = 'OneDiceRPG';
 </head>
 <body>
     <?php if ($this->request->getParam('controller') !== 'Users' || $this->request->getParam('action') !== 'login' || $this->request->getParam('action') !== 'register' ): ?>
-        <nav class="top-nav">
+        <!-- <nav class="top-nav">
             <div class="nav-left">
                 <img src="/img/cake-logo.png" alt="Logo" class="nav-logo" style="width:40px; height:40px; vertical-align:middle;">
                 <span class="nav-title" style="font-size:1.7em; color:#e15b5b; margin-left:10px; vertical-align:middle;">RPG Quest</span>
@@ -49,6 +50,26 @@ $cakeDescription = 'OneDiceRPG';
             <div class="nav-right">
                 <a href="/login" class="nav-btn">Entrar</a>
                 <a href="/register" class="nav-btn nav-btn-primary">Registrar</a>
+            </div>
+        </nav> -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://img.icons8.com/ios-filled/50/fa314a/sword.png" alt="logo">
+                <span>RPG Quest</span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" class="active">Início</a></li>
+                <li><a href="#">Campanhas</a></li>
+                <li><a href="#">Comunidade</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a class="login" href="<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'login']); ?>">Entrar</a>
+                <a href="#" class="register">Registrar</a>
+            </div>
+            <!-- Botão hambúrguer -->
+            <div class="menu-toggle" id="menu-toggle">
+                ☰
             </div>
         </nav>
     <?php endif; ?>
