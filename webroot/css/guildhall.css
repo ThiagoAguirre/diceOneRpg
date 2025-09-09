@@ -1,0 +1,156 @@
+/* Guildhall specific styles */
+
+/* Guild actions */
+.guild-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.guild-actions .btn-primary,
+.guild-actions .btn-secondary {
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.guild-actions .btn-primary {
+  background: #ff3b3f;
+  color: #fff;
+}
+
+.guild-actions .btn-primary:hover {
+  background: #e53e3e;
+  transform: translateY(-2px);
+}
+
+.guild-actions .btn-secondary {
+  background: transparent;
+  color: #ff3b3f;
+  border: 2px solid #ff3b3f;
+}
+
+.guild-actions .btn-secondary:hover {
+  background: #ff3b3f;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Empty state */
+.empty-state {
+  background: #1a1a1a;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 30px auto;
+  max-width: 500px;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #ff3b3f;
+}
+
+.empty-state p {
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.empty-state .btn-primary {
+  background: #ff3b3f;
+  color: #fff;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.empty-state .btn-primary:hover {
+  background: #e53e3e;
+  transform: translateY(-2px);
+}
+
+/* Guild tag variations */
+.campaign .tag.active {
+  background: #28a745;
+}
+
+.campaign .tag.recruiting {
+  background: #ffc107;
+  color: #000;
+}
+
+.campaign .tag.full {
+  background: #6c757d;
+}
+
+/* Responsive design for guild list */
+@media (max-width: 768px) {
+  .campaign-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .guild-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .guild-actions .btn-primary,
+  .guild-actions .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Pagination styling */
+.paginator {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.paginator ul {
+  display: inline-flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 5px;
+}
+
+.paginator li {
+  margin: 0;
+}
+
+.paginator a {
+  display: block;
+  padding: 8px 12px;
+  color: #ccc;
+  text-decoration: none;
+  border: 1px solid #333;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.paginator a:hover,
+.paginator .current a {
+  background: #ff3b3f;
+  color: #fff;
+  border-color: #ff3b3f;
+}
+
+.paginator .disabled a {
+  color: #666;
+  cursor: not-allowed;
+}
+
+.paginator .disabled a:hover {
+  background: none;
+  color: #666;
+  border-color: #333;
+}
