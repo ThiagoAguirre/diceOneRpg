@@ -22,6 +22,7 @@ class UsersFixture extends TestFixture
                 'id' => 1,
                 'username' => 'Lorem ipsum dolor sit amet',
                 'password' => 'Lorem ipsum dolor sit amet',
+                'email' => 'user@example.com',
                 'created' => 1746398316,
                 'modified' => 1746398316,
             ],
