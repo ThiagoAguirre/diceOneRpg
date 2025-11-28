@@ -40,7 +40,7 @@ class UsersController extends AppController
             // redirect to /articles after login success
             $redirect = $this->request->getQuery('redirect', [
                 'controller' => 'Guildhall',
-                'action' => 'index',
+                'action' => 'guildhall',
             ]);
 
             return $this->redirect($redirect);
@@ -166,6 +166,7 @@ class UsersController extends AppController
      */
     public function logout()
     {
+        $this->request->allowMethod(['post']);
         $result = $this->Authentication->getResult();
         // regardless of POST or GET, redirect if user is logged in
         if ($result && $result->isValid()) {
@@ -173,5 +174,7 @@ class UsersController extends AppController
 
             return $this->redirect(['controller' => 'Users', 'action' => 'login']);
         }
+
+        return $this->redirect(['controller' => 'Users', 'action' => 'login']);
     }
 }

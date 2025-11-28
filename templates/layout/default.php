@@ -7,79 +7,36 @@
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
  * @var \App\View\AppView $this
  */
 
 $cakeDescription = 'OneDiceRPG';
+$identity = $this->request->getAttribute('identity');
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        <?= $cakeDescription ?>:
+        <?= h($cakeDescription) ?>:
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
     <?= $this->Html->css(['cake']) ?>
-    <?= $this->Html->script(['main.js']) ?>
-
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <?php if ($this->request->getParam('controller') !== 'Users' || $this->request->getParam('action') !== 'login' || $this->request->getParam('action') !== 'register' ): ?>
-        <!-- <nav class="top-nav">
-            <div class="nav-left">
-                <img src="/img/cake-logo.png" alt="Logo" class="nav-logo" style="width:40px; height:40px; vertical-align:middle;">
-                <span class="nav-title" style="font-size:1.7em; color:#e15b5b; margin-left:10px; vertical-align:middle;">RPG Quest</span>
+    <?= $this->element('navbar', ['identity' => $identity]) ?>
+    <main class="app-main">
+        <div class="app-container">
+            <div class="flash-wrapper">
+                <?= $this->Flash->render() ?>
             </div>
-            <div class="nav-center">
-                <a href="/" class="nav-link active">Início</a>
-                <a href="/campanhas" class="nav-link">Campanhas</a>
-                <a href="/comunidade" class="nav-link">Comunidade</a>
-                <a href="/blog" class="nav-link">Blog</a>
-            </div>
-            <div class="nav-right">
-                <a href="/login" class="nav-btn">Entrar</a>
-                <a href="/register" class="nav-btn nav-btn-primary">Registrar</a>
-            </div>
-        </nav> -->
-        <nav class="navbar">
-            <div class="logo">
-                <img src="https://img.icons8.com/ios-filled/50/fa314a/sword.png" alt="logo">
-                <span>RPG Quest</span>
-            </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#" class="active">Início</a></li>
-                <li><a href="#">Campanhas</a></li>
-                <li><a href="#">Comunidade</a></li>
-                <li><a href="#">Blog</a></li>
-            </ul>
-            <div class="auth-buttons">
-                <a class="login" href="<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'login']); ?>">Entrar</a>
-                <a href="#" class="register">Registrar</a>
-            </div>
-            <!-- Botão hambúrguer -->
-            <div class="menu-toggle" id="menu-toggle">
-                ☰
-            </div>
-        </nav>
-    <?php endif; ?>
-    <main class="main">
-        <div class="container">
-            <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
         </div>
     </main>
-    <footer>
-    </footer>
 </body>
 </html>

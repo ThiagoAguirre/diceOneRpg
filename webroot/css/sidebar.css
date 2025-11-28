@@ -1,0 +1,165 @@
+/* Sidebar styles for diceOneRPG
+   Keeps the left sidebar narrow by default and expands on toggle.
+*/
+:root{
+  --sidebar-bg: #0f1214;
+  --sidebar-accent: #1b1f22;
+  --sidebar-highlight: #e04a4a; /* red */
+  --sidebar-text: #cfcfcf;
+}
+
+.app-sidebar{
+  position:fixed;
+  left:0;
+  top:0;
+  bottom:0;
+  width:76px; /* compact width */
+  background: linear-gradient(180deg, var(--sidebar-bg), #0b0d0e);
+  border-right:1px solid rgba(255,255,255,0.02);
+  z-index:30;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:14px 8px;
+  gap:14px;
+  transition:width 220ms ease, transform 220ms ease;
+  overflow:visible;
+}
+
+/* Expanded state */
+.app-sidebar.open{
+  width:240px;
+  align-items:flex-start;
+  padding:20px;
+}
+
+.sidebar-top .brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  width:100%;
+}
+.brand-icon{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:var(--sidebar-highlight);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:18px;
+}
+.brand-title{
+  color:var(--sidebar-text);
+  font-weight:700;
+  font-size:1.05rem;
+  display:none;
+}
+
+/* Show title when expanded */
+.app-sidebar.open .brand-title{ display:block; }
+
+.sidebar-nav{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  width:100%;
+}
+.sidebar-item{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.sidebar-item a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:48px;
+  height:48px;
+  border-radius:10px;
+  color:var(--sidebar-text);
+  text-decoration:none;
+}
+
+/* When expanded, align icons left and show labels if needed */
+.app-sidebar.open .sidebar-item{ justify-content:flex-start; }
+.app-sidebar.open .sidebar-item a{ width:100%; padding:10px 14px; }
+
+/* user info at bottom */
+.sidebar-bottom{
+  margin-top:auto;
+  width:100%;
+}
+.user-info{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px;
+  border-radius:8px;
+}
+.avatar{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:#222428;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+.user-name{ color:var(--sidebar-text); font-weight:600; display:none; }
+.app-sidebar.open .user-name{ display:block; }
+
+.logout{ margin-top:8px; }
+.logout-link{ color:#fff; background:var(--sidebar-accent); padding:6px 10px; border-radius:8px; text-decoration:none; display:inline-block; }
+
+/* page content shift handling using body class */
+body{
+  transition:background-color 180ms ease;
+}
+.main{
+  transition:margin-left 220ms ease, padding 220ms ease;
+  margin-left:76px; /* leave room for compact sidebar */
+}
+body.sidebar-open .main{ margin-left:240px; }
+
+/* Responsive: hide sidebar on small screens, use overlay */
+@media (max-width:900px){
+  .app-sidebar{ transform:translateX(-100%); }
+  .app-sidebar.open{ transform:translateX(0); position:fixed; box-shadow:0 6px 24px rgba(0,0,0,0.6); }
+  .main{ margin-left:0; }
+  body.sidebar-open .main{ filter:blur(0.5px); }
+}
+
+/* small aesthetic tweaks */
+.app-sidebar .sidebar-item a:hover{ background:rgba(255,255,255,0.03); }
+.app-sidebar .sidebar-item a:active{ transform:translateY(1px); }
+
+/* toggle button (will be injected by JS) */
+.sidebar-toggle-btn{
+  position:absolute;
+  right:-22px;
+  top:14px;
+  width:40px;
+  height:40px;
+  border-radius:10px;
+  background:var(--sidebar-accent);
+  color:var(--sidebar-text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* when collapsed (not open) show only narrow UI */
+.app-sidebar:not(.open) .sidebar-toggle-btn{ right:-18px; }
+
+/* make sure the existing navbar doesn't overlap */
+.navbar{ z-index:20; }

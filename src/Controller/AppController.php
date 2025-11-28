@@ -35,23 +35,6 @@ class AppController extends Controller
      *
      * e.g. `$this->loadComponent('FormProtection');`
      *
-     * @param \Cake\Event\EventInterface $event The event that was fired
-     * @return void
-     */
-    public function beforeFilter(\Cake\Event\EventInterface $event)
-    {
-        parent::beforeFilter($event);
-        // for all controllers in our application, make index and view
-        // actions public, skipping the authentication check
-        $this->Authentication->addUnauthenticatedActions(['index', 'view']);
-    }
-    /**
-     * Initialization hook method.
-     *
-     * Use this method to add common initialization code like loading components.
-     *
-     * e.g. `$this->loadComponent('FormProtection');`
-     *
      * @return void
      */
     public function initialize(): void

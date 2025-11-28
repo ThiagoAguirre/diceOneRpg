@@ -27,6 +27,6 @@
     </div>
 </div>
 
-<?php 
-echo $this->HTML->css(['login.css']);
+<?php
+echo $this->Html->css(['login.css']);
 ?>
